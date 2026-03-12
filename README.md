@@ -1,8 +1,6 @@
-<div dir="rtl">
-
 # نظرة عامة على المشروع
 
-المشروع الحالي هو نسخة معدّلة بالكامل من قالب TailAdmin بحيث يخدم سيناريو **Landing + Dashboardات متعددة (Admin / Provider)** على نفس التطبيق. تم الاعتماد على **Next.js App Router** لكننا أبقينا منطق اللوحات منفصلًا داخل مجلد مستقل `src/dashboards` يشبه أسلوب العمل الذي كنا نتبعه في مشروع Kids Sentry (هيكلة Feature-Based Modular).  
+المشروع الحالي هو نسخة معدّلة بالكامل من قالب TailAdmin بحيث يخدم سيناريو **Landing + Dashboardات متعددة (Admin / Provider)** على نفس التطبيق. تم الاعتماد على **Next.js App Router** لكننا أبقينا منطق اللوحات منفصلًا داخل مجلد مستقل `src/dashboards` يشبه أسلوب العمل الذي كنا نتبعه في Previous enterprise SaaS project (هيكلة Feature-Based Modular).  
 الهدف الأساسي: مسار واحد نظيف (`/`) للصفحة العامة، ومسار واحد (`/dashboard`) يختار لوحة التحكم المناسبة بحسب الـ role المخزّن في الكوكيز، مع إبقاء كل UI الخاص بالداشبورد خارج `app/` لسهولة التطوير وإعادة الاستخدام.
 
 ## البنية الحالية (Feature-Based Modular)
@@ -68,7 +66,7 @@ src/
 - **Modular**: كل Dashboard عبارة عن React Module مستقل يمكن نقله أو تطويره دون لمس `app/`.
 - **Clean URLs**: زائر الداشبورد يرى `/dashboard/profile` بدل `/dashboard/admin/profile` أو `/admin/profile`.
 - **سهل التوسع**: إضافة Dashboard جديد = ملف routes جديد + ربط في `roleRoutes`.
-- **متوافق مع نهج Kids Sentry**: نفس التقسيم (layout + features + shared) مما يسهّل دمج الكود القديم في حالة تحويل أي مشروع قديم.
+- **متوافق مع نهج Previous enterprise SaaS project**: نفس التقسيم (layout + features + shared) مما يسهّل دمج الكود القديم في حالة تحويل أي مشروع قديم.
 
 ## العيوب أو الأمور التي يجب الانتباه لها
 1. **الاعتماد على الكوكيز**: بدون backend حقيقي يجب ضبط الكوكيز يدويًا؛ وإلا ستظهر تحذيرات redirect أو أخطاء 401.
